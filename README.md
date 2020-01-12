@@ -18,4 +18,4 @@ ln -s $XDG_CONFIG_HOME//kak/colors/ $PWD/colors/*
 
 ## Thanks!
 - Ayu colorscheme : [dempfi/ayu](https://github.com/dempfi/ayu)
-- Kakoune editor : [mawww/kakoune](ihttps://github.com/mawww/kakoune)
+- Kakoune editor : [mawww/kakoune](https://github.com/mawww/kakoune)
