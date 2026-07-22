@@ -1,37 +1,38 @@
 evaluate-commands %sh{
-    common_accent="rgb:ff9940"
-    common_bg="rgb:fafafa"
-    common_fg="rgb:6c7680"
-    common_ui="rgb:959da6"
+    common_accent="rgb:f29718"
+    common_accent_on="rgb:804b00"
+    common_bg="rgb:fcfcfc"
+    common_fg="rgb:5c6166"
+    common_ui="rgb:828e9f"
 
     syntax_tag="rgb:55b4d4"
-    syntax_func="rgb:f2ae49"
+    syntax_func="rgb:f2a300"
     syntax_entity="rgb:399ee6"
     syntax_string="rgb:86b300"
     syntax_regexp="rgb:4cbf99"
     syntax_markup="rgb:f07171"
-    syntax_keyword="rgb:fa8d3e"
-    syntax_special="rgb:e6ba7e"
-    syntax_comment="rgb:abb0b6"
+    syntax_keyword="rgb:ff7e33"
+    syntax_special="rgb:d9b077"
+    syntax_comment="rgb:adaeaf"
     syntax_constant="rgb:a37acc"
     syntax_operator="rgb:ed9366"
-    syntax_error="rgb:f51818"
+    syntax_error="rgb:e65050"
 
-    ui_line="rgb:959da6"
-    ui_panel_bg="rgb:ffffff"
-    ui_panel_shadow="rgb:566069"
-    ui_panel_border="rgb:f0f0f0"
-    ui_gutter_normal="rgb:959da6"
-    ui_gutter_active="rgb:959da6"
-    ui_selection_bg="rgb:edf0f5"
-    ui_selection_inactive="rgb:f2f4f7"
-    ui_selection_border="rgb:e5ebf2"
-    ui_guide_active="rgb:959da6"
-    ui_guide_normal="rgb:959da6"
+    ui_line="rgb:f0f1f3"
+    ui_panel_bg="rgb:fafafa"
+    ui_panel_shadow="rgb:f0f1f3"
+    ui_panel_border="rgb:eaecef"
+    ui_gutter_normal="rgb:cdd0d7"
+    ui_gutter_active="rgb:9aa4b2"
+    ui_selection_bg="rgb:e6eaed"
+    ui_selection_inactive="rgb:eaf1f9"
+    ui_selection_border="rgb:ffe294"
+    ui_guide_active="rgb:d4d7d9"
+    ui_guide_normal="rgb:e8e9ea"
 
-    vcs_added="rgb:99bf4d"
-    vcs_modified="rgb:709ecc"
-    vcs_removed="rgb:f27983"
+    vcs_added="rgb:6cbf43"
+    vcs_modified="rgb:478acc"
+    vcs_removed="rgb:ff7383"
 
     echo "
         declare-option str fg '${common_fg#rgb:}'
@@ -46,60 +47,60 @@ evaluate-commands %sh{
         declare-option str magenta '${syntax_constant#rgb:}'
         declare-option str cyan '${syntax_tag#rgb:}'
         declare-option str comment '${syntax_comment#rgb:}'
-        declare-option str cursoralpha '80'
-        declare-option str selectionalpha '40'
+        declare-option str cursoralpha 'ff'
+        declare-option str selectionalpha '26'
         declare-option str menuselection '${ui_selection_bg#rgb:}'
 
         # then we map them to code
         face global value ${syntax_constant}
         face global type ${syntax_entity}
-        face global variable ${syntax_regexp}
-        face global module ${syntax_special}
-        face global identifier ${syntax_regexp}
+        face global variable ${common_fg}
+        face global module ${syntax_string}
+        face global identifier ${common_fg}
         face global function ${syntax_func}
         face global string ${syntax_string}
         face global keyword ${syntax_keyword}
         face global operator ${syntax_operator}
-        face global attribute ${syntax_tag}
+        face global attribute ${syntax_func}
         face global comment ${syntax_comment}
         face global documentation ${syntax_comment}
-        face global meta ${syntax_markup}
-        face global builtin ${syntax_special}+b
+        face global meta ${syntax_special}
+        face global builtin ${syntax_markup}+b
 
         # and markup
-        face global title ${syntax_tag}
-        face global header ${syntax_entity}
-        face global bold ${syntax_error}+b
-        face global italic ${syntax_func}+i
-        face global mono ${syntax_string}
-        face global block ${syntax_keyword}
-        face global link ${syntax_constant}+u
-        face global bullet ${syntax_operator}
-        face global list ${syntax_markup}
+        face global title ${syntax_string}
+        face global header ${syntax_string}
+        face global bold ${syntax_markup}+b
+        face global italic ${syntax_markup}+i
+        face global mono ${syntax_regexp}
+        face global block ${syntax_regexp}
+        face global link ${syntax_entity}+u
+        face global bullet ${syntax_func}
+        face global list ${common_fg}
 
         # and built in faces
         face global Default ${common_fg},${common_bg}
-        face global PrimarySelection ${common_fg},rgba:${syntax_entity#rgb:}40+fg@Default
-        face global SecondarySelection ${common_fg},rgba:${syntax_string#rgb:}40+fg@Default
-        face global PrimaryCursor ${common_bg},rgba:${syntax_entity#rgb:}80
-        face global SecondaryCursor ${common_bg},rgba:${syntax_string#rgb:}80
-        face global PrimaryCursorEol ${common_bg},rgba:${syntax_error#rgb:}80+B
-        face global SecondaryCursorEol ${common_bg},rgba:${syntax_tag#rgb:}80
-        face global LineNumbers ${common_fg},${ui_line}
-        face global LineNumberCursor ${common_accent},${ui_line}
-        face global LineNumbersWrapped ${common_bg},${common_bg}
+        face global PrimarySelection default,rgba:035bd626
+        face global SecondarySelection default,rgba:035bd612
+        face global PrimaryCursor ${common_accent_on},${common_accent}
+        face global SecondaryCursor ${common_bg},${syntax_entity}
+        face global PrimaryCursorEol ${common_bg},${syntax_error}+B
+        face global SecondaryCursorEol ${common_bg},${syntax_regexp}
+        face global LineNumbers ${ui_gutter_normal},${common_bg}
+        face global LineNumberCursor ${ui_gutter_active},${common_bg}
+        face global LineNumbersWrapped ${ui_line},${common_bg}
         face global MenuForeground ${common_fg},${ui_selection_bg}
-        face global MenuBackground ${common_fg},${ui_selection_inactive}
-        face global MenuInfo ${syntax_string},${ui_selection_inactive}
+        face global MenuBackground ${common_fg},${ui_panel_bg}
+        face global MenuInfo ${syntax_func},${ui_panel_bg}
         face global Information ${common_fg},${ui_panel_bg}
         face global InlineInformation ${common_fg},${ui_panel_bg}
-        face global Error ${syntax_error}+f
-        face global StatusLine ${vcs_removed},${ui_panel_border}
-        face global StatusLineMode ${vcs_added},${ui_panel_border}+b
-        face global StatusLineInfo ${vcs_modified},${ui_panel_border}
-        face global StatusLineValue ${vcs_modified},${ui_panel_border}
-        face global StatusCursor ${common_bg},rgba:${syntax_entity#rgb:}80
-        face global Prompt ${vcs_added},${ui_panel_border}
+        face global Error ${syntax_error},${ui_panel_bg}+f
+        face global StatusLine ${common_fg},${ui_panel_border}
+        face global StatusLineMode ${common_accent},${ui_panel_border}+b
+        face global StatusLineInfo ${syntax_tag},${ui_panel_border}
+        face global StatusLineValue ${syntax_constant},${ui_panel_border}
+        face global StatusCursor ${common_accent_on},${common_accent}
+        face global Prompt ${common_accent},${ui_panel_border}
         face global MatchingChar ${common_fg},${ui_selection_border}+bu
         face global BufferPadding ${common_bg},${common_bg}
         face global Whitespace ${ui_guide_normal}+f
@@ -107,23 +108,23 @@ evaluate-commands %sh{
 
         face global InlayHint +d@type
         face global InlayCodeLens +d@type
-        face global parameter +i@variable
+        face global parameter +i@value
         face global enum ${syntax_tag}
         face global InlayDiagnosticError ${syntax_error}
-        face global InlayDiagnosticWarning ${syntax_func}
-        face global InlayDiagnosticInfo ${syntax_entity}
-        face global InlayDiagnosticHint ${ui_panel_shadow}
+        face global InlayDiagnosticWarning ${common_accent}
+        face global InlayDiagnosticInfo ${syntax_tag}
+        face global InlayDiagnosticHint ${common_ui}
         face global LineFlagError ${syntax_error}
-        face global LineFlagWarning ${syntax_func}
-        face global LineFlagInfo ${syntax_entity}
-        face global LineFlagHint ${ui_panel_shadow}
+        face global LineFlagWarning ${common_accent}
+        face global LineFlagInfo ${syntax_tag}
+        face global LineFlagHint ${common_ui}
         face global DiagnosticError ,,${syntax_error}+c
-        face global DiagnosticWarning ,,${syntax_func}+c
-        face global DiagnosticInfo ,,${syntax_entity}+c
-        face global DiagnosticHint ,,${common_fg}+c
+        face global DiagnosticWarning ,,${common_accent}+c
+        face global DiagnosticInfo ,,${syntax_tag}+c
+        face global DiagnosticHint ,,${common_ui}+c
         face global DiagnosticTagDeprecated +s
         face global DiagnosticTagUnnecessary +d
-        face global Reference ${common_fg},${ui_selection_border}
+        face global Reference default,rgba:035bd61f
         face global ReferenceBind +u@Reference
         face global InfoDefault Information
         face global InfoBlock block
