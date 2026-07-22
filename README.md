@@ -16,6 +16,16 @@ Otherwise just link the theme files into your config's color sub-folder.
 ln -s $XDG_CONFIG_HOME//kak/colors/ $PWD/colors/*
 ```
 
+## Integrations
+
+All three variants use explicit RGB colors, including foregrounds and backgrounds, so they do not depend on the terminal palette. They also provide:
+
+- `kak-lsp` semantic tokens, inlay hints and code lenses, inline and gutter diagnostics, reference highlighting, and syntax-highlighted information boxes.
+- `kak-rainbower` bracket colors.
+- Palette options compatible with `kak-one`: `fg`, `bg`, `subbg`, `lightred`, `darkred`, `green`, `lightorange`, `darkorange`, `blue`, `magenta`, `cyan`, `comment`, `cursoralpha`, `selectionalpha`, and `menuselection`.
+
+To use the additional semantic token faces, map `enum` and `parameter` in your `kak-lsp` configuration.
+
 ## Thanks!
 - Ayu colorscheme : [dempfi/ayu](https://github.com/dempfi/ayu)
 - Kakoune editor : [mawww/kakoune](https://github.com/mawww/kakoune)
