@@ -140,6 +140,71 @@ evaluate-commands %sh{
         face global InfoDiagnosticInformation InlayDiagnosticInfo
         face global InfoDiagnosticWarning InlayDiagnosticWarning
 
+        # tree-sitter faces (kak-tree-sitter)
+        face global ts_attribute ${syntax_func}
+        face global ts_comment ${syntax_comment}
+        face global ts_comment_unused ${syntax_comment}+s
+        face global ts_conceal ${syntax_constant}+i
+        face global ts_constant ${syntax_constant}
+        face global ts_constant_character ${syntax_string}
+        face global ts_constant_character_escape ${syntax_special}
+        face global ts_constructor ${syntax_entity}
+        face global ts_diff_plus ${vcs_added}
+        face global ts_diff_minus ${vcs_removed}
+        face global ts_diff_delta ${vcs_modified}
+        face global ts_diff_delta_moved ${vcs_modified}+i
+        face global ts_embedded ${common_fg}
+        face global ts_error ${syntax_error}+b
+        face global ts_function ${syntax_func}
+        face global ts_function_builtin ${syntax_func}+i
+        face global ts_function_macro ${syntax_keyword}
+        face global ts_hint ${common_ui}+b
+        face global ts_include ${syntax_keyword}
+        face global ts_info ${syntax_tag}+b
+        face global ts_keyword ${syntax_keyword}
+        face global ts_keyword_operator ${syntax_operator}
+        face global ts_keyword_storage_modifier_ref ${syntax_operator}
+        face global ts_label ${syntax_tag}
+        face global ts_load ${syntax_keyword}
+        face global ts_markup_bold ${syntax_markup}+b
+        face global ts_markup_heading ${syntax_string}
+        face global ts_markup_heading_marker ${syntax_keyword}+b
+        face global ts_markup_italic ${syntax_markup}+i
+        face global ts_markup_link_label ${syntax_entity}
+        face global ts_markup_link_text ${syntax_entity}
+        face global ts_markup_link_url ${syntax_entity}+u
+        face global ts_markup_link_uri ${syntax_entity}+u
+        face global ts_markup_list_checked ${vcs_added}
+        face global ts_markup_list_numbered ${syntax_func}
+        face global ts_markup_list_unchecked ${common_ui}
+        face global ts_markup_list_unnumbered ${syntax_func}
+        face global ts_markup_quote ${syntax_regexp}
+        face global ts_markup_raw ${syntax_regexp}
+        face global ts_markup_strikethrough ${syntax_comment}+s
+        face global ts_namespace ${syntax_string}
+        face global ts_operator ${syntax_operator}
+        face global ts_punctuation ${common_ui}
+        face global ts_punctuation_special ${syntax_special}
+        face global ts_special ${syntax_special}
+        face global ts_string ${syntax_string}
+        face global ts_string_escape ${syntax_special}
+        face global ts_string_regexp ${syntax_regexp}
+        face global ts_string_special ${syntax_special}
+        face global ts_string_special_path ${syntax_string}
+        face global ts_string_special_symbol ${syntax_constant}
+        face global ts_string_symbol ${syntax_constant}
+        face global ts_tag ${syntax_tag}
+        face global ts_tag_error ${syntax_error}
+        face global ts_text ${common_fg}
+        face global ts_type ${syntax_entity}
+        face global ts_type_builtin ${syntax_entity}+i
+        face global ts_type_enum_variant ${syntax_tag}
+        face global ts_variable ${common_fg}
+        face global ts_variable_builtin ${syntax_markup}
+        face global ts_variable_other_member ${syntax_tag}
+        face global ts_variable_parameter +i@value
+        face global ts_warning ${common_accent}+b
+
         try %{ set-option global rainbow_colors ${syntax_func} ${syntax_constant} ${syntax_entity} }
     "
 }

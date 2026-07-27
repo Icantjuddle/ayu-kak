@@ -21,6 +21,7 @@ ln -s $XDG_CONFIG_HOME//kak/colors/ $PWD/colors/*
 All three variants use explicit RGB colors, including foregrounds and backgrounds, so they do not depend on the terminal palette. They also provide:
 
 - `kak-lsp` semantic tokens, inlay hints and code lenses, inline and gutter diagnostics, reference highlighting, and syntax-highlighted information boxes.
+- [`kak-tree-sitter`](https://git.sr.ht/~hadronized/kak-tree-sitter) `ts_*` faces, following the same conventions as [kakoune-tree-sitter-themes](https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes).
 - `kak-rainbower` bracket colors.
 - Palette options compatible with `kak-one`: `fg`, `bg`, `subbg`, `lightred`, `darkred`, `green`, `lightorange`, `darkorange`, `blue`, `magenta`, `cyan`, `comment`, `cursoralpha`, `selectionalpha`, and `menuselection`.
 
