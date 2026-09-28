@@ -18,6 +18,7 @@ evaluate-commands %sh{
     syntax_error="rgb:ff6666"
     ui_line="rgb:1a1f29"
     ui_panel_bg="rgb:282e3b"
+    ui_popup_bg="rgb:1c212c"
     ui_panel_shadow="rgb:000000"
     ui_panel_border="rgb:171b24"
     ui_gutter_normal="rgb:4d535e"
@@ -89,8 +90,8 @@ evaluate-commands %sh{
         face global MenuForeground ${common_fg},${ui_selection_bg}
         face global MenuBackground ${common_fg},${ui_panel_bg}
         face global MenuInfo ${syntax_func},${ui_panel_bg}
-        face global Information ${common_fg},${ui_panel_bg}
-        face global InlineInformation ${common_fg},${ui_panel_bg}
+        face global Information ${common_fg},${ui_popup_bg}
+        face global InlineInformation ${common_fg},${ui_popup_bg}
         face global Error ${syntax_error},${ui_panel_bg}+f
         face global StatusLine ${common_fg},${ui_panel_border}
         face global StatusLineMode ${common_accent},${ui_panel_border}+b
@@ -201,6 +202,23 @@ evaluate-commands %sh{
         face global ts_variable_other_member ${syntax_tag}
         face global ts_variable_parameter +i@value
         face global ts_warning ${common_accent}+b
+
+        # GitHub PR/diff faces
+        face global GhCiPass ${vcs_added}
+        face global GhCiFail ${syntax_error}
+        face global GhCiPending ${common_accent}
+        face global GhApproved ${vcs_added}
+        face global GhChangesRequested ${syntax_error}
+        face global GhAdditions ${vcs_added}
+        face global GhDeletions ${vcs_removed}
+        face global GhAddedLine default,rgba:${vcs_added#rgb:}26
+        face global GhRemovedLine default,rgba:${vcs_removed#rgb:}26
+        face global GhAddedText default,rgba:${vcs_added#rgb:}66
+        face global GhRemovedText default,rgba:${vcs_removed#rgb:}66
+        face global GhCommentFlag ${common_accent}
+        face global GhPendingFlag ${syntax_constant}
+        face global GhPendingComment ${syntax_constant}+d
+        face global GhThreadOpen ${syntax_error}
 
         try %{ set-option global rainbow_colors ${syntax_func} ${syntax_constant} ${syntax_entity} }
     "
